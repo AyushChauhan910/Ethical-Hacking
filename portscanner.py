@@ -2,10 +2,11 @@
 import socket
 
 sock =  socket.socket(socket.AF_INET , socket.SOCK_STREAM)
+socket.setdefaulttimeout(2)
 
-host = "192.168.56.1"
+host = input("Enter IP address : ")
 
-port = 443
+port =int(input("Enter port: "))
 
 def portscanner(port):
         if sock.connect_ex((host,port)):
