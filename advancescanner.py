@@ -3,6 +3,22 @@
 from socket import *
 import optparse
 from threading import *
+from termcolor import colored 
+
+
+def connScan(tgtHost,tgtPort):
+        try:
+                sock = socket(AF_INET , SOCK_STREAM)
+                sock.connect((tgtHost , tgtPort))
+                print(colored("[+] %d/tcp open" % tgtPort , 'green'))
+
+        except:
+                print(colored("[-] %d/tcp closed" % tgtPort , 'red'))
+
+        finally:
+                sock.close()
+
+
 
 def portScan(tgtHost,tgtPorts):
         try:
@@ -37,3 +53,4 @@ def main():
 
 if __name__ == '__main__':
         main()
+
