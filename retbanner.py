@@ -17,11 +17,11 @@ def retBanner(ip,port):
 
 
 def main():
-        port = 22
-        ip = "192.168.29.238"
-        banner = retBanner(ip,port)
-        if banner:
-                print("[+]" + ip + ": " + banner)
+        ip = input("[*] Enter target IP : ")
+        for port in range(1,100):
+                banner = retBanner(ip,port)
+                if banner:
+                        print("[+]" + ip + "/" + str(port) + ": " + banner.strip("\n"))
 
 
 main()
